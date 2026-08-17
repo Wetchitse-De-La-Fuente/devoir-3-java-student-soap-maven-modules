@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ser="http://service.webservice.soap.samanecorporation.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:studentRequestSav>
+            <student>
+                <matricule>M124</matricule>
+                <nom>NDIAYE</nom>
+                <prenom>Moussa</prenom>
+                <numeroTelephone>771234567</numeroTelephone>
+            </student>
+        </ser:studentRequestSav>
+    </soapenv:Body>
+</soapenv:Envelope>

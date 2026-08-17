@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ser="http://service.webservice.soap.samanecorporation.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:studentRequestGet>
+            <matricule>M123</matricule>
+        </ser:studentRequestGet>
+    </soapenv:Body>
+</soapenv:Envelope>

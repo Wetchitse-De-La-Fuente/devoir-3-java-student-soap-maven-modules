@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://service.webservice.soap.samanecorporation.com/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="http://service.webservice.soap.samanecorporation.com/"
+             name="StudentWebServiceService">
+    <types>
+        <xsd:schema targetNamespace="http://service.webservice.soap.samanecorporation.com/" elementFormDefault="qualified">
+            <xsd:complexType name="student">
+                <xsd:sequence>
+                    <xsd:element name="matricule" type="xsd:string"/>
+                    <xsd:element name="nom" type="xsd:string"/>
+                    <xsd:element name="prenom" type="xsd:string"/>
+                    <xsd:element name="numeroTelephone" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="studentRequestGet">
+                <xsd:complexType><xsd:sequence><xsd:element name="matricule" type="xsd:string"/></xsd:sequence></xsd:complexType>
+            </xsd:element>
+            <xsd:element name="studentResponseGet">
+                <xsd:complexType><xsd:sequence><xsd:element name="student" type="tns:student" minOccurs="0"/></xsd:sequence></xsd:complexType>
+            </xsd:element>
+            <xsd:element name="studentRequestSav">
+                <xsd:complexType><xsd:sequence><xsd:element name="student" type="tns:student"/></xsd:sequence></xsd:complexType>
+            </xsd:element>
+            <xsd:element name="studentResponseSav">
+                <xsd:complexType><xsd:sequence><xsd:element name="student" type="tns:student" minOccurs="0"/></xsd:sequence></xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="studentRequestGet"><part name="parameters" element="tns:studentRequestGet"/></message>
+    <message name="studentResponseGet"><part name="parameters" element="tns:studentResponseGet"/></message>
+    <message name="studentRequestSav"><part name="parameters" element="tns:studentRequestSav"/></message>
+    <message name="studentResponseSav"><part name="parameters" element="tns:studentResponseSav"/></message>
+    <portType name="StudentWebService">
+        <operation name="studentRequestGet"><input message="tns:studentRequestGet"/><output message="tns:studentResponseGet"/></operation>
+        <operation name="studentRequestSav"><input message="tns:studentRequestSav"/><output message="tns:studentResponseSav"/></operation>
+    </portType>
+    <binding name="StudentWebServicePortBinding" type="tns:StudentWebService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="studentRequestGet"><soap:operation soapAction=""/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation>
+        <operation name="studentRequestSav"><soap:operation soapAction=""/><input><soap:body use="literal"/></input><output><soap:body use="literal"/></output></operation>
+    </binding>
+    <service name="StudentWebServiceService">
+        <port name="StudentWebServicePort" binding="tns:StudentWebServicePortBinding">
+            <soap:address location="http://localhost:8080/student-soap/studentWebService"/>
+        </port>
+    </service>
+</definitions>

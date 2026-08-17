@@ -1,0 +1,12 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns2:studentResponseGet xmlns:ns2="http://service.webservice.soap.samanecorporation.com/">
+            <student>
+                <matricule>M123</matricule>
+                <nom>DIOP</nom>
+                <prenom>Aminata</prenom>
+                <numeroTelephone>770001122</numeroTelephone>
+            </student>
+        </ns2:studentResponseGet>
+    </S:Body>
+</S:Envelope>
